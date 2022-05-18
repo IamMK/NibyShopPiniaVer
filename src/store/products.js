@@ -1,6 +1,7 @@
-export default {
-    namespaced: true,
-    state() {
+import { defineStore } from 'pinia'
+
+export const useProdsStore =  defineStore('prods', {
+    state: () => {
         return {
             products: [
                 {
@@ -31,10 +32,5 @@ export default {
                 },
               ]
         }
-    },
-    getters: {
-        products(state) {
-            return state.products;
-        }
     }
-}
+})

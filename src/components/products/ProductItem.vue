@@ -19,15 +19,26 @@
 </template>
 
 <script>
+import { useCartStore } from '../../store/cart';
+
 export default {
-  props: ['id', 'image', 'title', 'price', 'description'],
-  methods: {
-    addToCart() {
-      this.$store.dispatch('cart/addToCart', {
-        id: this.id,
-      });
-    },
+  setup(){
+    const cart = useCartStore();
+
+    function addToCart(){
+      cart.addToCart({id: this.id});
+    }
+
+    return addToCart
   },
+  props: ['id', 'image', 'title', 'price', 'description'],
+  // methods: {
+  //   addToCart() {
+  //     this.$store.dispatch('cart/addToCart', {
+  //       id: this.id,
+  //     });
+  //   },
+  // },
 };
 </script>
 

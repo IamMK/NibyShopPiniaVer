@@ -18,19 +18,29 @@
 
 <script>
 import CartItem from '../components/cart/CartItem.vue';
+import { useCartStore } from '../store/cart';
 
 export default {
+  setup(){
+    const cart = useCartStore();
+
+    let cartTotal = cart.total;
+    let cartItems = cart.total;
+
+    return {cartItems, cartTotal}
+  },
+
   components: {
     CartItem,
   },
-  computed: {
-    cartTotal() {
-      return this.$store.getters['cart/total'];
-    },
-    cartItems(){
-      return this.$store.getters['cart/products']
-    }
-  }
+  // computed: {
+  //   cartTotal() {
+  //     return this.$store.getters['cart/total'];
+  //   },
+  //   cartItems(){
+  //     return this.$store.getters['cart/products']
+  //   }
+  // }
 };
 </script>
 

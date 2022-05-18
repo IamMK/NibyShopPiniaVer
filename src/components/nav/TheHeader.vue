@@ -25,24 +25,52 @@
 </template>
 
 <script>
+
+import {useCartStore} from '../../store/cart'
+import {useMainStore} from '../../store'
+
 export default {
-  computed:{
-    cartQty(){
-      return this.$store.getters['cart/qty']
+  setup() {
+        // const store = useMainStore()
+        const cart = useCartStore()
+        const main = useMainStore()
+        // const prods = useProdsStore()
+
+        let cartQty = cart.qty;
+        let isLoggedIn = main.isAuthenticated;
+
+        function login(){
+          main.logIn()
+        }
+
+        function logout(){
+          main.logOut();
+        }
+
+
+        return {
+            cartQty, isLoggedIn, login, logout
+        }
     },
-    isLoggedIn(){
-      console.log(this.$store.getters);
-      return this.$store.getters.isAuthenticated
-    }
-  },
-  methods:{
-    login(){
-      this.$store.dispatch('logIn');
-    },
-    logout(){
-      this.$store.dispatch('logOut')
-    }
-  }
+  // computed:{
+  //   cartQty(){
+  //     // console.log(cart);
+  //     return this.cart.qty
+  //   },
+    // isLoggedIn(){
+    //   // console.log(this.$store.getters);
+    //   // return this.store.isAuthenticated
+    //   return false;
+    // }
+  // },
+  // methods:{
+  //   login(){
+  //     this.$store.dispatch('logIn');
+  //   },
+  //   logout(){
+  //     this.$store.dispatch('logOut')
+  //   }
+  // }
 };
 </script>
 

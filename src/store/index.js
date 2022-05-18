@@ -1,38 +1,34 @@
-import { createStore } from 'vuex'
-import productsModule from './products.js'
-import cartModule from './cart.js'
+import { defineStore } from 'pinia'
+// import productsModule from './products.js'
+// import cartModule from './cart.js'
 
-const store = createStore({
-    modules: {
-        prods: productsModule,
-        cart: cartModule
-    },
-    state(){
+export const useMainStore = defineStore('main', {
+    state: () => {
         return { 
-            isLoggedIn: false
+            isAuthenticated: false
         }
     },
-    getters:{
-        isAuthenticated(state){
-            return state.isLoggedIn;
-        }
-    },
-    mutations:{
-        login(state) {
-            state.isLoggedIn = true;
-          },
-          logout(state) {
-            state.isLoggedIn = false;
-          },
-    },
-    actions:{
-        logIn(context){
-            context.commit('login')
+    actions: {
+        logIn(){
+            this.isAuthenticated = true;
         },
-        logOut(context){
-            context.commit('logout')
+        logOut(){
+            this.isAuthenticated = false;
         }
     }
 })
 
-export default store
+// export default {
+//     setup() {
+//         const store = mainStore()
+//         const cart = cartModule()
+//         const prods = productsModule()
+
+//         return {
+//             store,
+//             cart,
+//             prods
+//         }
+//     }
+    
+// }

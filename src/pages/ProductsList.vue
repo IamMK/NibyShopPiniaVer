@@ -16,15 +16,21 @@
 
 <script>
 import ProductItem from '../components/products/ProductItem.vue';
+import { useProdsStore } from '../store/products';
 
 export default {
+  setup(){
+    const prods = useProdsStore();
+
+    let products = ()=> {
+      console.log(prods.products);
+      return prods.products;
+    } ///log pokazuje normalnie. v-for nie chce mielić
+
+    return products;
+  },
   components: {
     ProductItem,
-  },
-  computed:{
-    products(){
-      return this.$store.getters['prods/products'];
-    }
   }
 };
 </script>
