@@ -22,16 +22,22 @@
 </template>
 
 <script>
+import { useCartStore } from '../../store/cart';
+
 export default {
+  setup(){
+    const cart = useCartStore();
+
+    function remove(){
+      cart.removeProductFromCart();
+    }
+
+    return remove
+  },
 props: ['prodId', 'title', 'image', 'price', 'qty'],
   computed: {
     itemTotal() {
       return (this.price * this.qty).toFixed(2);
-    }
-  },
-  methods: {
-    remove() {
-      this.$store.dispatch('cart/removeFromCart', {productId: this.prodId});
     }
   }
 };
