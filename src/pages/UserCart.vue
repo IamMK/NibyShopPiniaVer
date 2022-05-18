@@ -1,10 +1,10 @@
 <template>
   <section>
     <h2>Your Cart</h2>
-    <h3>Total Amount: <base-badge mode="elegant">${{ cartTotal }}</base-badge></h3>
+    <h3>Total Amount: <base-badge mode="elegant">${{ cart.total }}</base-badge></h3>
     <ul>
       <cart-item
-        v-for="item in cartItems"
+        v-for="item in cart.items"
         :key="item.productId"
         :prod-id="item.productId"
         :title="item.title"
@@ -24,10 +24,7 @@ export default {
   setup(){
     const cart = useCartStore();
 
-    let cartTotal = cart.total;
-    let cartItems = cart.total;
-
-    return {cartItems, cartTotal}
+    return cart
   },
 
   components: {

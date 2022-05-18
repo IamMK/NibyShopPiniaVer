@@ -10,7 +10,7 @@
         </li>
         <li>
           <router-link to="/cart">Cart</router-link>
-          <base-badge mode="elegant">{{ cartQty }}</base-badge>
+          <base-badge mode="elegant">{{ cart.qty }}</base-badge>
         </li>
         <li v-if="isLoggedIn">
           <router-link to="/admin">Admin</router-link>
@@ -18,8 +18,8 @@
       </ul>
     </nav>
     <div>
-      <button v-if="!isLoggedIn" @click="login">Login</button>
-      <button v-if="isLoggedIn" @click="logout">Logout</button>
+      <button v-if="!cart.isAuthenticated" @click="login">Login</button>
+      <button v-if="cart.isAuthenticated" @click="logout">Logout</button>
     </div>
   </header>
 </template>
@@ -34,8 +34,6 @@ export default {
         const cart = useCartStore()
         const main = useMainStore()
 
-        let cartQty = cart.qty;
-        let isLoggedIn = main.isAuthenticated;
 
         function login(){
           main.logIn()
@@ -47,7 +45,7 @@ export default {
 
 
         return {
-            cartQty, isLoggedIn, login, logout
+            cart, login, logout
         }
     },
 };

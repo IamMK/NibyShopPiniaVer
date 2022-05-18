@@ -2,7 +2,7 @@
   <section>
     <ul>
       <product-item
-        v-for="prod in products"
+        v-for="prod in prods.products"
         :key="prod.id"
         :id="prod.id"
         :title="prod.title"
@@ -22,12 +22,12 @@ export default {
   setup(){
     const prods = useProdsStore();
 
-    let products = ()=> {
-      console.log(prods.products);
-      return prods.products;
-    } ///log pokazuje normalnie. v-for nie chce mielić
+    // let products = ()=> {
+    //   console.log(prods.products);
+    //   return prods.products;
+    // } ///log pokazuje normalnie. v-for nie chce mielić
 
-    return products;
+    return prods;
   },
   components: {
     ProductItem,
