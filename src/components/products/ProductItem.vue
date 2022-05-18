@@ -32,13 +32,6 @@ export default {
     return addToCart
   },
   props: ['id', 'image', 'title', 'price', 'description'],
-  // methods: {
-  //   addToCart() {
-  //     this.$store.dispatch('cart/addToCart', {
-  //       id: this.id,
-  //     });
-  //   },
-  // },
 };
 </script>
 

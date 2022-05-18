@@ -31,10 +31,8 @@ import {useMainStore} from '../../store'
 
 export default {
   setup() {
-        // const store = useMainStore()
         const cart = useCartStore()
         const main = useMainStore()
-        // const prods = useProdsStore()
 
         let cartQty = cart.qty;
         let isLoggedIn = main.isAuthenticated;
@@ -52,25 +50,6 @@ export default {
             cartQty, isLoggedIn, login, logout
         }
     },
-  // computed:{
-  //   cartQty(){
-  //     // console.log(cart);
-  //     return this.cart.qty
-  //   },
-    // isLoggedIn(){
-    //   // console.log(this.$store.getters);
-    //   // return this.store.isAuthenticated
-    //   return false;
-    // }
-  // },
-  // methods:{
-  //   login(){
-  //     this.$store.dispatch('logIn');
-  //   },
-  //   logout(){
-  //     this.$store.dispatch('logOut')
-  //   }
-  // }
 };
 </script>
 

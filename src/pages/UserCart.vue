@@ -33,14 +33,6 @@ export default {
   components: {
     CartItem,
   },
-  // computed: {
-  //   cartTotal() {
-  //     return this.$store.getters['cart/total'];
-  //   },
-  //   cartItems(){
-  //     return this.$store.getters['cart/products']
-  //   }
-  // }
 };
 </script>
 
