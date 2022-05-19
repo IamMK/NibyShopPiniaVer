@@ -22,16 +22,22 @@
 import { useCartStore } from '../../store/cart';
 
 export default {
-  setup(){
+  setup(props){
     const cart = useCartStore();
 
     function addToCart(){
-      cart.addToCart({id: this.id});
+      cart.addProductToCart({id: props.id});
     }
 
-    return addToCart
+    return {addToCart}
   },
-  props: ['id', 'image', 'title', 'price', 'description'],
+  props: {
+    id: String,
+    image: String,
+    title: String,
+    price: Number,
+    description: String
+  }
 };
 </script>
 

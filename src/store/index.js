@@ -1,6 +1,4 @@
 import { defineStore } from 'pinia'
-// import productsModule from './products.js'
-// import cartModule from './cart.js'
 
 export const useMainStore = defineStore('main', {
     state: () => {
@@ -17,18 +15,3 @@ export const useMainStore = defineStore('main', {
         }
     }
 })
-
-// export default {
-//     setup() {
-//         const store = mainStore()
-//         const cart = cartModule()
-//         const prods = productsModule()
-
-//         return {
-//             store,
-//             cart,
-//             prods
-//         }
-//     }
-    
-// }

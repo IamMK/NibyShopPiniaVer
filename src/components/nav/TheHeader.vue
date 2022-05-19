@@ -12,14 +12,14 @@
           <router-link to="/cart">Cart</router-link>
           <base-badge mode="elegant">{{ cart.qty }}</base-badge>
         </li>
-        <li v-if="isLoggedIn">
+        <li v-if="cart.isAuthenticated">
           <router-link to="/admin">Admin</router-link>
         </li>
       </ul>
     </nav>
     <div>
-      <button v-if="!cart.isAuthenticated" @click="login">Login</button>
-      <button v-if="cart.isAuthenticated" @click="logout">Logout</button>
+      <button v-if="!main.isAuthenticated" @click="login">Login</button>
+      <button v-if="main.isAuthenticated" @click="logout">Logout</button>
     </div>
   </header>
 </template>
@@ -45,7 +45,7 @@ export default {
 
 
         return {
-            cart, login, logout
+            cart, login, logout, main
         }
     },
 };

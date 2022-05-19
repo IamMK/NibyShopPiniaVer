@@ -32,11 +32,12 @@ export default {
       cart.removeProductFromCart();
     }
 
-    return remove
+    return {remove}
   },
 props: ['prodId', 'title', 'image', 'price', 'qty'],
   computed: {
     itemTotal() {
+      console.log(this.price * this.qty);
       return (this.price * this.qty).toFixed(2);
     }
   }

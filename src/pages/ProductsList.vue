@@ -22,12 +22,7 @@ export default {
   setup(){
     const prods = useProdsStore();
 
-    // let products = ()=> {
-    //   console.log(prods.products);
-    //   return prods.products;
-    // } ///log pokazuje normalnie. v-for nie chce mielić
-
-    return prods;
+    return {prods};
   },
   components: {
     ProductItem,
